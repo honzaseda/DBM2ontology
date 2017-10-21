@@ -1,0 +1,22 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:class="http://test/class/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:id="http://test/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:prop="http://test/prop/"
+    xmlns:j.0="http://www.w3.org/2001/XMLSchema#">
+  <owl:Class rdf:about="http://test/class/race"/>
+  <owl:Class rdf:about="http://test/class/member"/>
+  <owl:Class rdf:about="http://test/class/league_key"/>
+  <owl:Class rdf:about="http://test/class/_links"/>
+  <owl:Class rdf:about="http://test/class/team"/>
+  <owl:Class rdf:about="http://test/class/character_link"/>
+  <owl:Class rdf:about="http://test/class/self"/>
+  <owl:Class rdf:about="http://test/class/played_race_count"/>
+  <owl:Class rdf:about="http://test/class/legacy_link"/>
+  <owl:Class rdf:about="http://test/class/clan_link"/>
+  <owl:Class rdf:about="http://test/class/ladder"/>
+  <owl:Class rdf:about="http://test/class/key"/>
+  <owl:Class rdf:about="http://test/class/league"/>
+</rdf:RDF>
