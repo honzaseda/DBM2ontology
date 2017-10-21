@@ -55,7 +55,7 @@ public class RDFontology {
 //                }
 //                System.out.println(" .");
 //            }
-
+            System.out.println("Blboune");
 
 
         } catch (IOException e) {
