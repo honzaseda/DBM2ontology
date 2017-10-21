@@ -12,11 +12,161 @@
   <owl:Class rdf:about="http://test/class/_links"/>
   <owl:Class rdf:about="http://test/class/team"/>
   <owl:Class rdf:about="http://test/class/character_link"/>
-  <owl:Class rdf:about="http://test/class/self"/>
   <owl:Class rdf:about="http://test/class/played_race_count"/>
+  <owl:Class rdf:about="http://test/class/self"/>
   <owl:Class rdf:about="http://test/class/legacy_link"/>
   <owl:Class rdf:about="http://test/class/clan_link"/>
   <owl:Class rdf:about="http://test/class/ladder"/>
   <owl:Class rdf:about="http://test/class/key"/>
   <owl:Class rdf:about="http://test/class/league"/>
+  <owl:ObjectProperty rdf:about="http://test/prop/_links">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:domain rdf:resource="http://test/class/self"/>
+    <rdfs:domain rdf:resource="http://test/class/character_link"/>
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+    <rdfs:domain rdf:resource="http://test/class/key"/>
+    <rdfs:domain rdf:resource="http://test/class/_links"/>
+    <rdfs:domain rdf:resource="http://test/class/league"/>
+    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+    <rdfs:domain rdf:resource="http://test/class/league_key"/>
+    <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
+    <rdfs:domain rdf:resource="http://test/class/member"/>
+    <rdfs:domain rdf:resource="http://test/class/played_race_count"/>
+    <rdfs:domain rdf:resource="http://test/class/race"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/race">
+    <rdfs:domain rdf:resource="http://test/class/played_race_count"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/played_race_count">
+    <rdfs:domain rdf:resource="http://test/class/member"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/character_link">
+    <rdfs:domain rdf:resource="http://test/class/member"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/clan_link">
+    <rdfs:domain rdf:resource="http://test/class/member"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/self">
+    <rdfs:domain rdf:resource="http://test/class/_links"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/team">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/league_key">
+    <rdfs:domain rdf:resource="http://test/class/league"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/legacy_link">
+    <rdfs:domain rdf:resource="http://test/class/member"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/member">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/key">
+    <rdfs:domain rdf:resource="http://test/class/league"/>
+    <rdfs:domain rdf:resource="http://test/class/character_link"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://test/prop/league">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/previous_rank">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/region">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/last_played_time_stamp">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/name">
+    <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/dateCrawled">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/join_time_stamp">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/en_US">
+    <rdfs:domain rdf:resource="http://test/class/race"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/id">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
+    <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
+    <rdfs:domain rdf:resource="http://test/class/character_link"/>
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/points">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/current_win_streak">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/queue_id">
+    <rdfs:domain rdf:resource="http://test/class/league_key"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/battle_tag">
+    <rdfs:domain rdf:resource="http://test/class/character_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/path">
+    <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/ties">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/current_rank">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/wins">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/realm">
+    <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/icon_url">
+    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/clan_tag">
+    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/team_type">
+    <rdfs:domain rdf:resource="http://test/class/league_key"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/rating">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/losses">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/longest_win_streak">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/decal_url">
+    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/href">
+    <rdfs:domain rdf:resource="http://test/class/self"/>
+    <rdfs:domain rdf:resource="http://test/class/key"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/clan_name">
+    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/ladderId">
+    <rdfs:domain rdf:resource="http://test/class/ladder"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/highest_rank">
+    <rdfs:domain rdf:resource="http://test/class/team"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/count">
+    <rdfs:domain rdf:resource="http://test/class/played_race_count"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/season_id">
+    <rdfs:domain rdf:resource="http://test/class/league_key"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://test/prop/league_id">
+    <rdfs:domain rdf:resource="http://test/class/league_key"/>
+  </owl:DatatypeProperty>
 </rdf:RDF>
