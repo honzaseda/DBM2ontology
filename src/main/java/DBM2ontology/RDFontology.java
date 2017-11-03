@@ -9,7 +9,6 @@ import org.apache.jena.rdf.model.*;
 import org.apache.jena.util.iterator.ExtendedIterator;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.XSD;
-import org.apache.xerces.util.URI;
 
 import java.io.*;
 import java.util.*;
@@ -46,6 +45,11 @@ public class RDFontology {
         writeOntology(outputFileName);
     }
 
+    /**
+     * Checks validity of input arguments
+     * @param args Input arguments
+     * @return Boolean value of test result
+     */
     private static boolean validArgs(String[] args){
         if(args.length < 1){
             System.out.println("You must specify an input file name as argument.");
@@ -64,6 +68,10 @@ public class RDFontology {
         return true;
     }
 
+    /**
+     * Writes created ontology model into an output file
+     * @param fileName Path to file
+     */
     private static void writeOntology(String fileName) {
         try {
             FileOutputStream f = new FileOutputStream(new File(fileName));
@@ -74,12 +82,20 @@ public class RDFontology {
         }
     }
 
+    /**
+     * Adds all found classes into ontology model
+     * @param resIterator Iterator of all resources taken from model
+     */
     private static void createClassesFromResources(ResIterator resIterator) {
         while (resIterator.hasNext()) {
             ontModel.createClass(resIterator.next().getProperty(nodeType).getObject().toString());
         }
     }
 
+    /**
+     * Iterates all model statements, adds all existing properties into ontology model, also sets the property type, range and domains
+     * @param stmtIterator Iterator of all statements found in model
+     */
     private static void createPropertiesFromStatements(StmtIterator stmtIterator) {
         while (stmtIterator.hasNext()) {
             Statement stmt = stmtIterator.next();
@@ -96,7 +112,12 @@ public class RDFontology {
         }
     }
 
-    //    A property can be functional if an instance of the domain is associated with at most one instance of range.
+    /**
+     * Checks if given property of model is functional.
+     * Note: A property can be functional if an instance of the domain is associated with at most one instance of range
+     * @param property Checked property
+     * @return Boolean value, true if property is functional
+     */
     private static boolean checkPropertyFunctionality(Property property) {
         RDFNode o = null;
         StmtIterator stmtIterator = model.listStatements(null, property, o);
@@ -119,6 +140,11 @@ public class RDFontology {
         return true;
     }
 
+    /**
+     * Gets range of an Object property
+     * @param objectValue String name of property
+     * @return Resource of property range
+     */
     private static Resource getObjectRange(String objectValue) {
         ExtendedIterator<OntClass> ontClasses = ontModel.listClasses();
         while (ontClasses.hasNext()) {
@@ -130,6 +156,11 @@ public class RDFontology {
         return XSD.anyURI;
     }
 
+    /**
+     * Predicts range of a DataType property
+     * @param objectValue String name of property
+     * @return Resource of property range
+     */
     private static Resource getDataRange(String objectValue) {
         if (objectValue.contains(".")) {
             if (Doubles.tryParse(objectValue) != null) {
@@ -145,33 +176,6 @@ public class RDFontology {
             return XSD.xlong;
         }
 
-        return XSD.xstring;
-    }
-
-    private static Resource oldGetDataRange(String objectValue) {
-        if (objectValue.contains(".")) {
-            try {
-                double dbl = Double.parseDouble(objectValue);
-                return XSD.xdouble;
-            } catch (Exception ex) {/* .. */}
-        }
-
-        try {
-            int integer = Integer.parseInt(objectValue);
-            return XSD.integer;
-        } catch (Exception ex) {/* .. */}
-
-        try {
-            long lng = Long.parseLong(objectValue);
-            return XSD.xlong;
-        } catch (Exception ex) {/* .. */}
-
-        try {
-            if (objectValue.contains(":") || objectValue.contains(".") || objectValue.contains("/")) {
-                URI uri = new URI(objectValue);
-                return XSD.anyURI;
-            }
-        } catch (Exception ex) {/* .. */}
         return XSD.xstring;
     }
 }
