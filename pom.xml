@@ -6,26 +6,50 @@
 
     <groupId>DBM2</groupId>
     <artifactId>DBM2</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/org.apache.jena/jena-core -->
         <dependency>
             <groupId>org.apache.jena</groupId>
-            <artifactId>jena-core</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>jena-arq</artifactId>
+            <artifactId>apache-jena-libs</artifactId>
+            <type>pom</type>
             <version>3.4.0</version>
         </dependency>
 
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/${project.build.finalName}.lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -42,6 +66,8 @@
                     <archive>
                         <manifest>
                             <mainClass>DBM2ontology.RDFontology</mainClass>
+                            <classpathPrefix>${project.build.finalName}.lib</classpathPrefix>
+                            <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
                 </configuration>
