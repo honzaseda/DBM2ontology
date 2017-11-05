@@ -1,7 +1,9 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://test/class/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.1="http://test/prop/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Class rdf:about="http://test/class/race"/>
   <owl:Class rdf:about="http://test/class/member"/>
@@ -253,4 +255,7 @@
     <rdfs:domain rdf:resource="http://test/class/league_key"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
+  <j.0:race rdf:about="http://test/class/Terran">
+    <j.1:en_US>Terran</j.1:en_US>
+  </j.0:race>
 </rdf:RDF>

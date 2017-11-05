@@ -2,45 +2,48 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-<groupId>DBM2</groupId>
-<artifactId>DBM2</artifactId>
-<version>1.0-SNAPSHOT</version>
+    <groupId>DBM2</groupId>
+    <artifactId>DBM2</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-<dependencies>
+    <dependencies>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.jena/jena-core -->
-    <dependency>
-        <groupId>org.apache.jena</groupId>
-        <artifactId>jena-core</artifactId>
-        <version>3.4.0</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.jena/jena-core -->
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
 
-    <!--<dependency>-->
-        <!--<groupId>cz.zcu.mre.vocab</groupId>-->
-        <!--<artifactId>vocab</artifactId>-->
-        <!--<version>1.0</version>-->
-        <!--<systemPath>${project.basedir}/libs/ontology-5.0.0.jar</systemPath>-->
-        <!--<scope>system</scope>-->
-    <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-arq</artifactId>
+            <version>3.4.0</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.jena/jena-arq -->
-    <dependency>
-        <groupId>org.apache.jena</groupId>
-        <artifactId>jena-arq</artifactId>
-        <version>3.4.0</version>
-    </dependency>
-
-</dependencies>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>DBM2ontology.RDFontology</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
