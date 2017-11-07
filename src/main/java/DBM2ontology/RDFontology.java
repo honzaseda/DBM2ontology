@@ -108,14 +108,24 @@ public class RDFontology {
         while (stmtIterator.hasNext()) {
             Statement stmt = stmtIterator.next();
             RDFNode object = stmt.getObject();
-            if (object instanceof Resource) {
-                ObjectProperty objectProperty = ontModel.createObjectProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
-                objectProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
-                objectProperty.setRange(getObjectRange(stmt.getPredicate().getLocalName()));
-            } else {
-                DatatypeProperty datatypeProperty = ontModel.createDatatypeProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
-                datatypeProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
-                datatypeProperty.setRange(getDataRange(object.toString()));
+            if (stmt.getPredicate() != nodeType) {
+                if(stmt.getPredicate() != null) {
+                    if (object instanceof Resource) {
+
+                        ObjectProperty objectProperty = ontModel.createObjectProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
+                        if(stmt.getSubject().getProperty(nodeType) != null) {
+                            objectProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
+                        }
+                        objectProperty.setRange(getObjectRange(stmt.getPredicate().getLocalName()));
+
+                    } else {
+                        DatatypeProperty datatypeProperty = ontModel.createDatatypeProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
+                        if(stmt.getSubject().getProperty(nodeType) != null) {
+                            datatypeProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
+                        }
+                        datatypeProperty.setRange(getDataRange(object.toString()));
+                    }
+                }
             }
         }
     }
