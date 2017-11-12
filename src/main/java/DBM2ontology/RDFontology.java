@@ -20,6 +20,7 @@ public class RDFontology {
     static private Property nodeType = RDF.type;
     static private String inputFileName;
     static private String outputFileName;
+    static private int individualsRatio = 20;
 
     static private Model model;
     static private OntModel ontModel;
@@ -40,13 +41,11 @@ public class RDFontology {
         model.read(inputFileName);
         ontModel.setNsPrefixes(model.getNsPrefixMap());
 
-        System.out.println("Creating classes...");
         createClassesFromResources(model.listResourcesWithProperty(nodeType));
 
-        System.out.println("Creating Properties...");
         createPropertiesFromStatements(model.listStatements());
 
-        createIndividuals();
+        createIndividuals(individualsRatio);
         System.out.print("Done. ");
         writeOntology(outputFileName);
     }
@@ -69,6 +68,13 @@ public class RDFontology {
             outputFileName = args[1];
         } else {
             outputFileName = "Ontology.owl";
+        }
+        if (args.length > 2 && Ints.tryParse(args[2]) != null) {
+            individualsRatio = Integer.parseInt(args[2]);
+            if (individualsRatio < 1){
+                System.out.println("Ratio parameter should be an integer bigger than 0");
+                return false;
+            }
         }
         return true;
     }
@@ -94,9 +100,18 @@ public class RDFontology {
      * @param resIterator Iterator of all resources taken from model
      */
     private static void createClassesFromResources(ResIterator resIterator) {
+        System.out.print("Creating classes... ");
+        int numOfResources = 0, numOfClasses = 0;
         while (resIterator.hasNext()) {
             ontModel.createClass(resIterator.next().getProperty(nodeType).getObject().toString());
+            numOfResources++;
         }
+        ExtendedIterator c = ontModel.listClasses();
+        while(c.hasNext()){
+            numOfClasses++;
+            c.next();
+        }
+        System.out.println("Created " + numOfClasses + " distinct classes from total of " + numOfResources + " resources");
     }
 
     /**
@@ -105,26 +120,23 @@ public class RDFontology {
      * @param stmtIterator Iterator of all statements found in model
      */
     private static void createPropertiesFromStatements(StmtIterator stmtIterator) {
+        System.out.print("Creating Properties... ");
         while (stmtIterator.hasNext()) {
             Statement stmt = stmtIterator.next();
             RDFNode object = stmt.getObject();
-            if (stmt.getPredicate() != nodeType) {
-                if(stmt.getPredicate() != null) {
-                    if (object instanceof Resource) {
-
-                        ObjectProperty objectProperty = ontModel.createObjectProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
-                        if(stmt.getSubject().getProperty(nodeType) != null) {
-                            objectProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
-                        }
-                        objectProperty.setRange(getObjectRange(stmt.getPredicate().getLocalName()));
-
-                    } else {
-                        DatatypeProperty datatypeProperty = ontModel.createDatatypeProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
-                        if(stmt.getSubject().getProperty(nodeType) != null) {
-                            datatypeProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
-                        }
-                        datatypeProperty.setRange(getDataRange(object.toString()));
+            if (stmt.getPredicate() != null && !stmt.getPredicate().toString().equals(nodeType.toString())) {
+                if (object instanceof Resource) {
+                    ObjectProperty objectProperty = ontModel.createObjectProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
+                    if (stmt.getSubject().getProperty(nodeType) != null) {
+                        objectProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
                     }
+                    objectProperty.setRange(getObjectRange(stmt.getPredicate().getLocalName()));
+                } else {
+                    DatatypeProperty datatypeProperty = ontModel.createDatatypeProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
+                    if (stmt.getSubject().getProperty(nodeType) != null) {
+                        datatypeProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
+                    }
+                    datatypeProperty.setRange(getDataRange(object.toString()));
                 }
             }
         }
@@ -203,14 +215,23 @@ public class RDFontology {
     /**
      * Creates individuals of classes
      */
-    private static void createIndividuals() {
+    private static void createIndividuals(int ratio) {
+        int numOfDataProps = 0, numOfObjectProps = 0, numOfIndividuals = 0;
         ExtendedIterator<DatatypeProperty> d = ontModel.listDatatypeProperties();
-        List<DatatypeProperty> list = new ArrayList<>();
+        ExtendedIterator<ObjectProperty> o = ontModel.listObjectProperties();
+        List<OntProperty> list = new ArrayList<>();
+        while (o.hasNext()) {
+            numOfObjectProps++;
+            list.add(o.next());
+        }
         while (d.hasNext()) {
+            numOfDataProps++;
             list.add(d.next());
         }
 
-        for (DatatypeProperty property: list) {
+        System.out.println("Created total of " + numOfObjectProps + " Object properties and " + numOfDataProps + " DataType properties");
+        System.out.print("Creating Individuals... ");
+        for (OntProperty property : list) {
             RDFNode nullNode = null;
             StmtIterator stmtIterator = model.listStatements(null, property, nullNode);
             Set<RDFNode> set = new HashSet<>();
@@ -220,21 +241,21 @@ public class RDFontology {
                 set.add(stmtIterator.next().getObject());
             }
 
-            if(numOfInstances/set.size() > 20) {
+            if (numOfInstances / set.size() > ratio) {
                 ExtendedIterator<? extends OntResource> domainsIter = property.listDomain();
                 List<OntResource> domains = new ArrayList<>();
                 while (domainsIter.hasNext()) {
                     domains.add(domainsIter.next());
                 }
-                for (OntResource ontClass:domains) {
-                    int count = 1;
+                for (OntResource ontClass : domains) {
                     for (RDFNode node : set) {
-                        Individual in = ontModel.createIndividual(ontClass.toString() + count, ontClass);
+                        Individual in = ontModel.createIndividual(ontClass.toString() + "-" + node.toString(), ontClass);
                         in.addProperty(property, node.toString());
-                        count++;
+                        numOfIndividuals++;
                     }
                 }
             }
         }
+        System.out.println("Found " + numOfIndividuals + " class individuals");
     }
 }

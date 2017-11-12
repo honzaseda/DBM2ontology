@@ -138,23 +138,6 @@
     <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-    <rdfs:domain rdf:resource="http://test/class/self"/>
-    <rdfs:domain rdf:resource="http://test/class/character_link"/>
-    <rdfs:domain rdf:resource="http://test/class/team"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:domain rdf:resource="http://test/class/key"/>
-    <rdfs:domain rdf:resource="http://test/class/_links"/>
-    <rdfs:domain rdf:resource="http://test/class/league"/>
-    <rdfs:domain rdf:resource="http://test/class/clan_link"/>
-    <rdfs:domain rdf:resource="http://test/class/ladder"/>
-    <rdfs:domain rdf:resource="http://test/class/league_key"/>
-    <rdfs:domain rdf:resource="http://test/class/legacy_link"/>
-    <rdfs:domain rdf:resource="http://test/class/member"/>
-    <rdfs:domain rdf:resource="http://test/class/played_race_count"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://test/class/race"/>
-  </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:about="http://test/prop/clan_link">
     <rdfs:range rdf:resource="http://test/class/clan_link"/>
     <rdfs:domain rdf:resource="http://test/class/member"/>
@@ -256,25 +239,25 @@
     <rdfs:domain rdf:resource="http://test/class/league_key"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
-  <class:race rdf:about="http://test/class/race2">
+  <class:race rdf:about="http://test/class/race-Protoss">
+    <prop:en_US>Protoss</prop:en_US>
+  </class:race>
+  <class:race rdf:about="http://test/class/race-Zerg">
     <prop:en_US>Zerg</prop:en_US>
   </class:race>
-  <class:legacy_link rdf:about="http://test/class/legacy_link2">
-    <prop:realm>1</prop:realm>
-  </class:legacy_link>
-  <class:race rdf:about="http://test/class/race1">
-    <prop:en_US>Terran</prop:en_US>
-  </class:race>
-  <class:legacy_link rdf:about="http://test/class/legacy_link1">
-    <prop:realm>2</prop:realm>
-  </class:legacy_link>
-  <class:team rdf:about="http://test/class/team1">
+  <class:team rdf:about="http://test/class/team-0">
     <prop:ties>0</prop:ties>
   </class:team>
-  <class:race rdf:about="http://test/class/race4">
+  <class:legacy_link rdf:about="http://test/class/legacy_link-2">
+    <prop:realm>2</prop:realm>
+  </class:legacy_link>
+  <class:legacy_link rdf:about="http://test/class/legacy_link-1">
+    <prop:realm>1</prop:realm>
+  </class:legacy_link>
+  <class:race rdf:about="http://test/class/race-Random">
     <prop:en_US>Random</prop:en_US>
   </class:race>
-  <class:race rdf:about="http://test/class/race3">
-    <prop:en_US>Protoss</prop:en_US>
+  <class:race rdf:about="http://test/class/race-Terran">
+    <prop:en_US>Terran</prop:en_US>
   </class:race>
 </rdf:RDF>
