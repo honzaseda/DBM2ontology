@@ -8,6 +8,7 @@ import org.apache.jena.rdf.model.*;
 
 import org.apache.jena.util.iterator.ExtendedIterator;
 import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 
 import java.io.*;
@@ -103,7 +104,9 @@ public class RDFontology {
         System.out.print("Creating classes... ");
         int numOfResources = 0, numOfClasses = 0;
         while (resIterator.hasNext()) {
-            ontModel.createClass(resIterator.next().getProperty(nodeType).getObject().toString());
+            RDFNode node = resIterator.next().getProperty(nodeType).getObject();
+            OntClass ontClass = ontModel.createClass(node.toString());
+            ontClass.addProperty(RDFS.label, node.asResource().getLocalName());
             numOfResources++;
         }
         ExtendedIterator c = ontModel.listClasses();
@@ -131,12 +134,14 @@ public class RDFontology {
                         objectProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
                     }
                     objectProperty.setRange(getObjectRange(stmt.getPredicate().getLocalName()));
+                    objectProperty.addProperty(RDFS.label, stmt.getPredicate().getLocalName());
                 } else {
                     DatatypeProperty datatypeProperty = ontModel.createDatatypeProperty(stmt.getPredicate().toString(), checkPropertyFunctionality(stmt.getPredicate()));
                     if (stmt.getSubject().getProperty(nodeType) != null) {
                         datatypeProperty.addDomain(stmt.getSubject().getProperty(nodeType).getObject().asResource());
                     }
                     datatypeProperty.setRange(getDataRange(object.toString()));
+                    datatypeProperty.addProperty(RDFS.label, stmt.getPredicate().getLocalName());
                 }
             }
         }
