@@ -7,6 +7,7 @@ import org.apache.jena.ontology.*;
 import org.apache.jena.rdf.model.*;
 
 import org.apache.jena.util.iterator.ExtendedIterator;
+import org.apache.jena.vocabulary.OWL2;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
@@ -47,7 +48,7 @@ public class RDFontology {
         createPropertiesFromStatements(model.listStatements());
 
         createIndividuals(individualsRatio);
-        System.out.print("Done. ");
+        System.out.println("Done analyzing input file.");
         writeOntology(outputFileName);
     }
 
@@ -58,6 +59,10 @@ public class RDFontology {
      * @return Boolean value of test result
      */
     private static boolean validArgs(String[] args) {
+//        parameters example
+//        "data/ibds.ttl" "data/ibdsontology.xml" 5
+//        "data/20171009-eu-6.ttl" "data/euontology.xml" 20
+
         if (args.length < 1) {
             System.out.println("You must specify an input file name as argument.");
             return false;
@@ -235,7 +240,8 @@ public class RDFontology {
         }
 
         System.out.println("Created total of " + numOfObjectProps + " Object properties and " + numOfDataProps + " DataType properties");
-        System.out.print("Creating Individuals... ");
+        System.out.println("Creating Individuals...");
+
         for (OntProperty property : list) {
             RDFNode nullNode = null;
             StmtIterator stmtIterator = model.listStatements(null, property, nullNode);
@@ -254,13 +260,25 @@ public class RDFontology {
                 }
                 for (OntResource ontClass : domains) {
                     for (RDFNode node : set) {
-                        Individual in = ontModel.createIndividual(ontClass.toString() + "-" + node.toString(), ontClass);
-                        in.addProperty(property, node.toString());
-                        numOfIndividuals++;
+                        if(!node.toString().equals("")) {
+                            if (node.isResource()) {
+                                Resource res = ontModel.createResource(node.toString());
+                                Individual in = ontModel.createIndividual(ontClass.toString() + "-" + res.getLocalName(), OWL2.NamedIndividual);
+                                in.addProperty(RDFS.label, res.getLocalName());
+                            } else {
+                                Individual in = ontModel.createIndividual(ontClass.toString() + "-" + node.toString(), OWL2.NamedIndividual);
+                                in.addProperty(RDFS.label, node.toString());
+                            }
+                        }
                     }
                 }
             }
         }
-        System.out.println("Found " + numOfIndividuals + " class individuals");
+//        ExtendedIterator<Individual> i = ontModel.listIndividuals();
+//        while(i.hasNext()){
+//            numOfIndividuals++;
+//            i.next();
+//        }
+//        System.out.println("Found " + numOfIndividuals + " class individuals");
     }
 }
