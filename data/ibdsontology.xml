@@ -1,0 +1,485 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dscl="http://mre.zcu.cz/ontology/dscl.owl#"
+    xmlns:mreid="http://mre.zcu.cz/id/"
+    xmlns:ds="http://mre.zcu.cz/ontology/dasta.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ibd="http://mre.zcu.cz/ontology/ibd.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:mre="http://mre.zcu.cz/ontology/mre.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/dasta.owl#Patient">
+    <rdfs:label>Patient</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Serology">
+    <rdfs:label>Serology</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Immunology">
+    <rdfs:label>Immunology</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/dasta.owl#Weight">
+    <rdfs:label>Weight</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/dasta.owl#Height">
+    <rdfs:label>Height</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Histology">
+    <rdfs:label>Histology</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Checkup">
+    <rdfs:label>Checkup</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#SideEffect">
+    <rdfs:label>SideEffect</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease">
+    <rdfs:label>InflammatoryBowelDisease</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Complication">
+    <rdfs:label>Complication</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Laboratory">
+    <rdfs:label>Laboratory</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasCheckup">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasCheckup</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHistologyDuodenum">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHistologyDuodenum</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Histology"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasLocation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasLocation</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasSideEffect">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasSideEffect</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasLaboratory">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasLaboratory</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplication">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplication</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHeight">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHeight</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHistologyStomach">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHistologyStomach</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Histology"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasCharacteristic">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasCharacteristic</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasWeight">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasWeight</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHistologyEsophagus">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHistologyEsophagus</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Histology"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHistologyTerminalIleum">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHistologyTerminalIleum</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Histology"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#diagnosisAge">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>diagnosisAge</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#sex">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>sex</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#weightStandardScore">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>weightStandardScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Weight"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#address">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>address</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasCMV">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasCMV</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Serology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#datetimeBirth">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>datetimeBirth</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationAbscess">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationAbscess</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#albumin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>albumin</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Laboratory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationEN">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationEN</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasElevatedALT">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasElevatedALT</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasElevatedLPS">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasElevatedLPS</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#aST">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>aST</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Laboratory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasGrowthDefect">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasGrowthDefect</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasSerology">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasSerology</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasNausea">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasNausea</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHSV">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHSV</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Serology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#diagnosisDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>diagnosisDate</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyPANCA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyPANCA</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasClassification">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasClassification</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#heightStandardScore">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>heightStandardScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Height"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasEBV">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasEBV</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Serology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationDM">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationDM</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHistology">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHistology</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#otherSideEffects">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>otherSideEffects</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#heightValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>heightValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Height"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyASMA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyASMA</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#firstName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>firstName</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyANA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyANA</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#immunoglobulinG">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>immunoglobulinG</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationCS">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationCS</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyASCA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyASCA</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#weightValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>weightValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Weight"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasHistologyColon">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasHistologyColon</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Histology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyAbpancreas">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyAbpancreas</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#isClassificationDefinite">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>isClassificationDefinite</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasElevatedAST">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasElevatedAST</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationStenosis">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationStenosis</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasVZV">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasVZV</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Serology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationPSC">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationPSC</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#has6MMP">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>has6MMP</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Checkup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasInflammatoryBowelDisease">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasInflammatoryBowelDisease</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationAT">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationAT</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationAIH">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationAIH</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#aLT">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>aLT</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Laboratory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#patientID2">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    <rdfs:label>patientID2</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#has6TGN">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>has6TGN</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Checkup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyIntestineGobletCell">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyIntestineGobletCell</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyAtypANCA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyAtypANCA</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasAbdominalPain">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasAbdominalPain</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/dasta.owl#lastName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>lastName</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#eventDate">
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Serology"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Weight"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Laboratory"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Checkup"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Histology"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdfs:label>eventDate</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Height"/>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunologyCANCA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunologyCANCA</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Immunology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasAgeGroup">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasAgeGroup</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#InflammatoryBowelDisease"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasMarrowSuppression">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasMarrowSuppression</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#SideEffect"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#otherComplication">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>otherComplication</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasComplicationFistula">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasComplicationFistula</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Complication"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasImmunology">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasImmunology</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/dasta.owl#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#pCDAI">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>pCDAI</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Checkup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://mre.zcu.cz/ontology/ibd.owl#hasTPMT">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label>hasTPMT</rdfs:label>
+    <rdfs:domain rdf:resource="http://mre.zcu.cz/ontology/ibd.owl#Laboratory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:NamedIndividual rdf:about="http://mre.zcu.cz/ontology/ibd.owl#SideEffect-Yes">
+    <rdfs:label>Yes</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Complication-No">
+    <rdfs:label>No</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Complication-Unknown">
+    <rdfs:label>Unknown</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://mre.zcu.cz/ontology/ibd.owl#SideEffect-No">
+    <rdfs:label>No</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://mre.zcu.cz/ontology/ibd.owl#Laboratory-_1">
+    <rdfs:label>_1</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://mre.zcu.cz/ontology/ibd.owl#SideEffect-Unknown">
+    <rdfs:label>Unknown</rdfs:label>
+  </owl:NamedIndividual>
+</rdf:RDF>
